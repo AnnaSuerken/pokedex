@@ -61,6 +61,10 @@ footer {
     cursor: pointer;
 }
 
+.poke-card:hover {
+    transform: scale(1.2);
+}
+
 .card-header{
     display: flex;
     align-items: center;
@@ -79,12 +83,17 @@ h2 {
     align-items: center;
     justify-content: center;
     background-color: aqua;
+    height: 175px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
 .pokemon-img {
     width: 125px;
+}
+
+.pokemon-img:hover {
+    transform: scale(1.2);
 }
 
 .card-footer{
@@ -112,6 +121,15 @@ button {
     position: absolute;
     right: 35px;
     top: 35px;
+    background-color: rgb(1, 41, 65, 0.90);
+    border-color: white;
+    border-style: solid;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.2);
 }
 
 .pokecard-overlay{
