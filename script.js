@@ -24,8 +24,9 @@ async function fetchPokemonDetails(array) {
 
     const pokemon = {                                           //defining object for push()
       name: pokeData.name,
-      image: pokeData.sprites.front_default,
+      image: pokeData.sprites.other.home.front_default,
       id: pokeData.id,
+      type: pokeData.types.map(t => t.type.name).join(", "),
     };
 
     pokemonArray.push(pokemon);
@@ -40,4 +41,20 @@ function renderPokemonCards(array){
         contentRef.innerHTML += getPokeCardTemplate(index)
     }
 
+}
+
+function renderPokeTypeImg(array){
+
+
+  for (let index = 0; index < array.length; index++) {
+    if (pokemonArray.type === "fire") {
+      return `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fire.svg" alt="" class="type-icon">`;
+    }
+    
+  }
+}
+
+function toggleOverlay(){
+  let overlay = document.getElementById('overlay');
+  overlay.classList.toggle('toggle_d_none');
 }

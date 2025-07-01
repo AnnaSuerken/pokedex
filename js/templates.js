@@ -1,13 +1,14 @@
 function getPokeCardTemplate(index) {
-  `<div class="poke-card">
-            <div class="card-header"></div>
-            <span>${pokemonArray[index].id}</span>
+ return `<div class="poke-card" onclick="toggleOverlay()">
+            <div class="card-header">
+            <span># ${pokemonArray[index].id}</span>
             <span>${pokemonArray[index].name}</span>
             </div>
-            <img src="${pokemonArray[index].image}" alt="">
-            <div>
-            <img src="" alt="">
-            <img src="" alt="">
+            <div class="card-main">
+            <img src="${pokemonArray[index].image}" alt="" class="pokemon-img">
+            </div>
+            <div class="card-footer">
+            <div id="pokeType-img">${pokemonArray[index].type}</sdiv>
             </div>
         </div>`;
 }
