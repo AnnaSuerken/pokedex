@@ -1,5 +1,5 @@
 const apiUrl = "https://pokeapi.co/api/v2/pokedex/";
-const baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
+const baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 const pokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 
 async function init() {
@@ -26,7 +26,7 @@ async function fetchPokemonDetails(array) {
       name: pokeData.name,
       image: pokeData.sprites.other.home.front_default,
       id: pokeData.id,
-      type: pokeData.types.map(t => t.type.name).join(", "),
+      type: pokeData.types.map(t => t.type.name),
     };
 
     pokemonArray.push(pokemon);
@@ -42,25 +42,6 @@ function renderPokemonCards(array){
     }
 
 }
-
-/*function renderPokeTypeImg(index){
-  let type = pokemonArray.type;
-  let typeImg = document.getElementById('pokeType-img');
-
-
-    switch (type) {
-      case "fire":
-        return typeImg.classList.add('pokeType-fire');
-        break;
-      case "fire":
-        return typeImg.classList.add('pokeType-fire');
-        break;
-    }
-    /*if (pokemonArray.type === "fire") {
-     n `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fire.svg" alt="" class="type-icon">`;
-    }*/ 
-    
-
 
 function toggleOverlay(){
   let overlay = document.getElementById('overlay');

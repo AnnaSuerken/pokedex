@@ -2,13 +2,20 @@ function getPokeCardTemplate(index) {
  return `<div class="poke-card" onclick="toggleOverlay()">
             <div class="card-header">
             <span># ${pokemonArray[index].id}</span>
-            <span>${pokemonArray[index].name}</span>
+            <span>${pokemonArray[index].name.toUpperCase()}</span>
             </div>
-            <div class="bg_${pokemonArray[index].type}">
+            <div class="bg_${pokemonArray[index].type[0]}">
             <img src="${pokemonArray[index].image}" alt="${pokemonArray[index].name}" class="pokemon-img">
             </div>
             <div class="card-footer">
-            <div id="pokeType-img" class="icon_${pokemonArray[index].type}" alt="${pokemonArray[index].type}"></div>
+            ${getTypeIcon(index)}
             </div>
         </div>`;
+}
+
+function getTypeIcon(index){
+    let type = pokemonArray[index].type;
+    return type.map(type => {
+        return `<div id="pokeType-img" class="icon_${type}" alt="${type}"></div>`
+    }).join('');
 }
