@@ -1,0 +1,289 @@
+.icon_fire{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fire.svg');
+}
+
+.icon_grass{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/grass.svg');
+}
+
+.icon_bug{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/bug.svg');
+}
+
+.icon_dark{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/dark.svg');
+}
+
+.icon_dragon{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/dragon.svg');
+}
+
+.icon_electric{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/electric.svg');
+}
+
+.icon_fairy{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fairy.svg');
+}
+
+.icon_fighting{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fighting.svg');
+}
+
+.icon_flying{
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/flying.svg');
+}
+
+.icon_ghost {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/ghost.svg');
+}
+
+.icon_ground {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/ground.svg');
+}
+
+.icon_ice {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/ice.svg');
+}
+
+.icon_normal {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/normal.svg');
+}
+
+.icon_poison {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/poison.svg');
+}
+
+.icon_psychic {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/psychic.svg');
+}
+
+.icon_rock {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/rock.svg');
+}
+
+.icon_steel {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/steel.svg');
+}
+
+.icon_water {
+    width: 45px;
+    height: 45px;
+    background-image: url('https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/water.svg');
+}
+
+
+
+.bg_fire{
+    background-color: #E4613E;
+    height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_grass{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_bug{
+    background-color: #9F9F28;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_dark{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_dragon{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_electric{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_fairy{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_fighting{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_flying{
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_ghost {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_ground {
+    background-color: #3099E1;
+    height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_ice {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_normal {
+    background-color: #828282;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_poison {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_psychic {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_rock {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_steel {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_water {
+    background-color: #3099E1;
+        height: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

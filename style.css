@@ -78,15 +78,6 @@ footer {
 h2 {
     font-size: 18px;
 }
-.card-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: aqua;
-    height: 175px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
 
 .pokemon-img {
     width: 125px;

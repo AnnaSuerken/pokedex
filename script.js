@@ -43,16 +43,24 @@ function renderPokemonCards(array){
 
 }
 
-function renderPokeTypeImg(array){
+/*function renderPokeTypeImg(index){
+  let type = pokemonArray.type;
+  let typeImg = document.getElementById('pokeType-img');
 
 
-  for (let index = 0; index < array.length; index++) {
-    if (pokemonArray.type === "fire") {
-      return `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fire.svg" alt="" class="type-icon">`;
+    switch (type) {
+      case "fire":
+        return typeImg.classList.add('pokeType-fire');
+        break;
+      case "fire":
+        return typeImg.classList.add('pokeType-fire');
+        break;
     }
+    /*if (pokemonArray.type === "fire") {
+     n `<img src="https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/fire.svg" alt="" class="type-icon">`;
+    }*/ 
     
-  }
-}
+
 
 function toggleOverlay(){
   let overlay = document.getElementById('overlay');
