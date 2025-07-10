@@ -47,3 +47,7 @@ function toggleOverlay(){
   let overlay = document.getElementById('overlay');
   overlay.classList.toggle('toggle_d_none');
 }
+
+function loadingButton(){
+  
+}
