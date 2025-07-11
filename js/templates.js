@@ -1,5 +1,5 @@
 function getPokeCardTemplate(index) {
- return `<div class="poke-card" onclick="toggleOverlay()">
+ return `<div class="poke-card" onclick="toggleOverlay(${index})">
             <div class="card-header">
             <span># ${pokemonArray[index].id}</span>
             <span>${pokemonArray[index].name.toUpperCase()}</span>

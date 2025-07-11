@@ -1,6 +1,7 @@
 const apiUrl = "https://pokeapi.co/api/v2/pokedex/";
 const baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 const pokeUrl = "https://pokeapi.co/api/v2/pokemon/";
+let currentIndex = 0;
 
 async function init() {
   const pokemonUrls = await fetchPokemonUrls();
@@ -43,9 +44,16 @@ function renderPokemonCards(array){
 
 }
 
-function toggleOverlay(){
+function toggleOverlay(index){
   let overlay = document.getElementById('overlay');
+  currentIndex = index;
   overlay.classList.toggle('toggle_d_none');
+  pokeCardLarge();
+}
+
+function pokeCardLarge(){
+  let srcPath = pokemonArray[currentIndex].image;
+  document.getElementById('pokemon-img').src = srcPath;
 }
 
 function loadingButton(){
