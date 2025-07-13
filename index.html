@@ -9,6 +9,7 @@
     <script src="./js/db.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./css/types.css" />
+    <link rel="stylesheet" href="./css/overlay.css" />
   </head>
   <body onload="init()">
     <div>
@@ -28,18 +29,9 @@
     </div>
     <div class="overlay toggle_d_none" id="overlay">
       <div class="pokecard-overlay">
-        <button onclick="toggleOverlay()">X</button>
+        <button onclick="exitOverlay()">X</button>
         <div class="pokecard-large">
-          <div>
-            <div class="">
-              <img
-                src=""
-                alt=""
-                class="pokemon-img"
-                id="pokemon-img"
-              />
-            </div>
-            <div class="card-footer"></div>
+          <div class="overlayContent" id="overlayContent">
           </div>
         </div>
       </div>

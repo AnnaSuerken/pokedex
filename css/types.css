@@ -108,180 +108,72 @@
 
 .bg_fire {
   background-color: #e4613e;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_grass {
   background-color: #439837;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_bug {
   background-color: #9f9f28;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_dark {
   background-color: #4f4747;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_dragon {
   background-color: #576fbc;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_electric {
   background-color: #dfbc28;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_fairy {
   background-color: #e18ce1;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_fighting {
   background-color: #e49021;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_flying {
   background-color: #74aad0;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_ghost {
   background-color: #6f4570;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_ground {
   background-color: #a4733c;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_ice {
   background-color: #47c8c8;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_normal {
   background-color: #828282;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_poison {
   background-color: #9354cb;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_psychic {
   background-color: #e96c8c;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_rock {
   background-color: #a9a481;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_steel {
   background-color: #74b0cb;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .bg_water {
   background-color: #3099e1;
-  height: 175px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

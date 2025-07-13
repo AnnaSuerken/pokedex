@@ -27,6 +27,10 @@ async function fetchPokemonDetails(array) {
       name: pokeData.name,
       image: pokeData.sprites.other.home.front_default,
       id: pokeData.id,
+      height: pokeData.height,
+      weight: pokeData.weight,
+      experience: pokeData.base_experience,
+      abilities: pokeData.abilities.map(a => a.ability.name),
       type: pokeData.types.map(t => t.type.name),
     };
 
@@ -46,16 +50,18 @@ function renderPokemonCards(array){
 
 function toggleOverlay(index){
   let overlay = document.getElementById('overlay');
+  let overlayContent = document.getElementById('overlayContent');
+  overlayContent.innerHTML += "";
   currentIndex = index;
   overlay.classList.toggle('toggle_d_none');
-  pokeCardLarge();
+  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
+
 }
 
-function pokeCardLarge(){
-  let srcPath = pokemonArray[currentIndex].image;
-  document.getElementById('pokemon-img').src = srcPath;
-}
+function exitOverlay(){
+  let overlay = document.getElementById('overlay');
+  let overlayContent = document.getElementById('overlayContent');
+  overlay.classList.toggle('toggle_d_none');
+  overlayContent.innerHTML = "";
 
-function loadingButton(){
-  
 }
