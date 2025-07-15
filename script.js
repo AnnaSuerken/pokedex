@@ -65,3 +65,13 @@ function exitOverlay(){
   overlayContent.innerHTML = "";
 
 }
+
+function toggleDNone(idName, idName2, idName3){
+  let id = document.getElementById(`${idName}`);
+  let id2 = document.getElementById(`${idName2}`);
+  let id3 = document.getElementById(`${idName3}`);
+
+  id.classList.toggle('toggle_d_none');
+  id2.classList.add('toggle_d_none');
+  id3.classList.add('toggle_d_none');
+}

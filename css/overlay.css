@@ -95,6 +95,7 @@ h2 {
     box-shadow: 1px 1px 1px rgb(65, 64, 64);
 }
 
-.detail-view-table{
-    margin-top: 75px;
+.detail-view-main{
+    margin-top: 15px;
+    width: 100%;
 }
