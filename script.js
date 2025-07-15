@@ -32,9 +32,17 @@ async function fetchPokemonDetails(array) {
       experience: pokeData.base_experience,
       abilities: pokeData.abilities.map(a => a.ability.name),
       type: pokeData.types.map(t => t.type.name),
+      stats: pokeData.stats.map(s => s.stat.name),
     };
 
+   /* const pokemonStats ={
+      name: pokeData.stats.map(s => s.stat.name),
+      base_stat: pokeData.stats.map(s => s.stat.base_stat),
+      effort: pokeData.stats.map(s => s.stat.effort),
+    }*/
+
     pokemonArray.push(pokemon);
+    //pokemonArray.push(pokemonStats);
   }
 }
 

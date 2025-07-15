@@ -51,17 +51,25 @@ function getPokeCardTemplateLarge(currentIndex) {
             </table>
             <table class="detail-view-main toggle_d_none" id="stats-table">
                         <tr>
-                        <th>Height: </th>
-                        <td></td>
+                        <th>${pokemonArray[currentIndex].stats[0]}: </th>
+                        <td>${pokemonArray[currentIndex].stats[0].base_stat}:</td>
                         <tr>
-                        <th>Weight: </th>
-                        <td>${pokemonArray[currentIndex].weight}</td>
+                        <th>${pokemonArray[currentIndex].stats[1]}: </th>
+                        <td>hier balken</td>
                         <tr>
-                        <th>Base experience: </th>
-                        <td>${pokemonArray[currentIndex].experience}</td>
+                        <th>${pokemonArray[currentIndex].stats[2]}: </th>
+                        <td>hier balken</td>
                         <tr>
-                        <th>Abilities: </th>
-                        <td>${pokemonArray[currentIndex].abilities}</td>
+                        <th>${pokemonArray[currentIndex].stats[3]}: </th>
+                        <td>hier balken</td>
+                        <tr>
+                        <th>${pokemonArray[currentIndex].stats[4]}: </th>
+                        <td>hier balken</td>
+                        <tr>
+                        <th>${pokemonArray[currentIndex].stats[5]}: </th>
+                        <td>hier balken</td>
+                        <tr>
+                   
             </table>
             <table class="detail-view-main toggle_d_none" id="evo-chain">
                         <tr>
