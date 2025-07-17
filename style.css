@@ -128,3 +128,7 @@ button:hover {
   margin-top: 64px;
   width: 125px;
 }
+
+th {
+  font-weight: normal;
+}

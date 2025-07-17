@@ -99,3 +99,24 @@ h2 {
     margin-top: 15px;
     width: 100%;
 }
+
+.progress-bar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
+
+.stats-content-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.text-align{
+    text-align: left;
+    margin-left: 50px;
+}
+

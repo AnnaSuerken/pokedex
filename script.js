@@ -90,7 +90,7 @@ function toggleDNone(idName, idName2, idName3){
   let id2 = document.getElementById(`${idName2}`);
   let id3 = document.getElementById(`${idName3}`);
 
-  id.classList.toggle('toggle_d_none');
+  id.classList.remove('toggle_d_none');
   id2.classList.add('toggle_d_none');
   id3.classList.add('toggle_d_none');
 }

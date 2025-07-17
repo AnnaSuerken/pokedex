@@ -5,9 +5,7 @@ function getPokeCardTemplate(index) {
             <span>${pokemonArray[index].name.toUpperCase()}</span>
             </div>
             <div class="bg_${pokemonArray[index].type[0]} bg-size">
-            <img src="${pokemonArray[index].image}" alt="${
-    pokemonArray[index].name
-  }" class="pokemon-img">
+            <img src="${pokemonArray[index].image}" alt="${pokemonArray[index].name}" class="pokemon-img">
             </div>
             <div class="card-footer">
             ${getTypeIcon(index)}
@@ -23,9 +21,7 @@ function getPokeCardTemplateLarge(currentIndex) {
             <div class="bg_${
               pokemonArray[currentIndex].type[0]
             } overlay-bg-size">
-            <img src="${pokemonArray[currentIndex].image}" alt="${
-    pokemonArray[currentIndex].name
-  }" class="overlay-pokemon-img">
+            <img src="${pokemonArray[currentIndex].image}" alt="${pokemonArray[currentIndex].name}" class="overlay-pokemon-img">
             </div>
             <div class="card-footer">
             ${getTypeIcon(currentIndex)}
@@ -35,42 +31,52 @@ function getPokeCardTemplateLarge(currentIndex) {
                 <span class="detail-category" onclick="toggleDNone('stats-table', 'main-table', 'evo-chain')">stats</span>
                 <span class="detail-category" onclick="toggleDNone('evo-chain', 'stats-table', 'main-table')">evo chain</span>
             </div>
-            <table class="detail-view-main toggle_d_none" id="main-table">
+            <table class="detail-view-main text-align" id="main-table">
                         <tr>
-                        <th>Height: </th>
+                        <th>height: </th>
                         <td>${pokemonArray[currentIndex].height}</td>
                         <tr>
-                        <th>Weight: </th>
+                        <th>weight: </th>
                         <td>${pokemonArray[currentIndex].weight}</td>
                         <tr>
-                        <th>Base experience: </th>
+                        <th>base experience: </th>
                         <td>${pokemonArray[currentIndex].experience}</td>
                         <tr>
-                        <th>Abilities: </th>
+                        <th>abilities: </th>
                         <td>${pokemonArray[currentIndex].abilities}</td>
             </table>
-            <table class="detail-view-main toggle_d_none" id="stats-table">
-                        <tr>
-                        <th>${pokemonArray[currentIndex].stats[0]}: </th>
-                        <td>${pokemonArray[currentIndex].base_stat[0]}</td>
-                        <tr>
-                        <th>${pokemonArray[currentIndex].stats[1]}: </th>
-                        <td>${pokemonArray[currentIndex].base_stat[1]}</td>
-                        <tr>
-                        <th>${pokemonArray[currentIndex].stats[2]}: </th>
-                        <td>${pokemonArray[currentIndex].base_stat[2]}</td>
-                        <tr>
-                        <th>${pokemonArray[currentIndex].stats[3]}: </th>
-                        <td>${pokemonArray[currentIndex].base_stat[3]}</td>
-                        <tr>
-                        <th>${pokemonArray[currentIndex].stats[4]}: </th>
-                        <td>${pokemonArray[currentIndex].base_stat[4]}</td>
-                        <tr>
-                        <th>${pokemonArray[currentIndex].stats[5]}: </th>
-                        <td>${pokemonArray[currentIndex].base_stat[5]}</td>
-                        <tr>
-                   
-            </table>
+            <div class="detail-view-main toggle_d_none" id="stats-table">
+                        <div class="stats-content-container">
+                          <span><label for="stats">${pokemonArray[currentIndex].stats[0]}: </label></span>
+                          <div class="progress-bar-container">${pokemonArray[currentIndex].base_stat[0]}
+                          <progress id="stats" max="300" value="${pokemonArray[currentIndex].base_stat[0]}"></progress>
+                          </div>
+                        </div>
+                        <div class="stats-content-container">
+                          <span><label for="stats">${pokemonArray[currentIndex].stats[1]}: </label></span>
+                          <div class="progress-bar-container">${pokemonArray[currentIndex].base_stat[1]}
+                          <progress id="stats" max="300" value="${pokemonArray[currentIndex].base_stat[1]}"></progress>
+                          </div>
+                        </div>
+                        <div class="stats-content-container">
+                          <span><label for="stats">${pokemonArray[currentIndex].stats[2]}: </label></span>
+                          <div class="progress-bar-container">${pokemonArray[currentIndex].base_stat[2]}
+                          <progress id="stats" max="300" value="${pokemonArray[currentIndex].base_stat[2]}"></progress>
+                          </div>
+                        </div>
+                        <div class="stats-content-container">
+                          <span><label for="stats">${pokemonArray[currentIndex].stats[3]}: </label></span>
+                          <div class="progress-bar-container">${pokemonArray[currentIndex].base_stat[3]}
+                          <progress id="stats" max="300" value="${pokemonArray[currentIndex].base_stat[3]}"></progress>
+                          </div>
+                        </div>
+                        <div class="stats-content-container">
+                          <span><label for="stats">${pokemonArray[currentIndex].stats[4]}: </label></span>
+                          <div class="progress-bar-container">${pokemonArray[currentIndex].base_stat[4]}
+                          <progress id="stats" max="300" value="${pokemonArray[currentIndex].base_stat[4]}"></progress>
+                          </div>
+                        </div>
+            </div>
             <table class="detail-view-main toggle_d_none" id="evo-chain">
                         <tr>
                         <th>Height: </th>
