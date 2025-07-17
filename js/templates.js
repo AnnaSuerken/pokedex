@@ -52,22 +52,22 @@ function getPokeCardTemplateLarge(currentIndex) {
             <table class="detail-view-main toggle_d_none" id="stats-table">
                         <tr>
                         <th>${pokemonArray[currentIndex].stats[0]}: </th>
-                        <td>${pokemonArray[currentIndex].stats[0].base_stat}:</td>
+                        <td>${pokemonArray[currentIndex].base_stat[0]}</td>
                         <tr>
                         <th>${pokemonArray[currentIndex].stats[1]}: </th>
-                        <td>hier balken</td>
+                        <td>${pokemonArray[currentIndex].base_stat[1]}</td>
                         <tr>
                         <th>${pokemonArray[currentIndex].stats[2]}: </th>
-                        <td>hier balken</td>
+                        <td>${pokemonArray[currentIndex].base_stat[2]}</td>
                         <tr>
                         <th>${pokemonArray[currentIndex].stats[3]}: </th>
-                        <td>hier balken</td>
+                        <td>${pokemonArray[currentIndex].base_stat[3]}</td>
                         <tr>
                         <th>${pokemonArray[currentIndex].stats[4]}: </th>
-                        <td>hier balken</td>
+                        <td>${pokemonArray[currentIndex].base_stat[4]}</td>
                         <tr>
                         <th>${pokemonArray[currentIndex].stats[5]}: </th>
-                        <td>hier balken</td>
+                        <td>${pokemonArray[currentIndex].base_stat[5]}</td>
                         <tr>
                    
             </table>
@@ -92,4 +92,8 @@ function getTypeIcon(index) {
       return `<div id="pokeType-img" class="icon_${type}" alt="${type}"></div>`;
     })
     .join("");
+}
+
+function loadMoreTemplate() {
+  return `<button class="loading-btn" id="loading-btn">Weiter</button>`;
 }

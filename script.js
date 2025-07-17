@@ -4,11 +4,12 @@ const pokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 let currentIndex = 0;
 
 async function init() {
+  loadingSpinenr();
   const pokemonUrls = await fetchPokemonUrls();
   await fetchPokemonDetails(pokemonUrls);
   renderPokemonCards(pokemonArray);
-
   console.log(pokemonArray);
+
 }
 
 async function fetchPokemonUrls() {
@@ -33,22 +34,32 @@ async function fetchPokemonDetails(array) {
       abilities: pokeData.abilities.map(a => a.ability.name),
       type: pokeData.types.map(t => t.type.name),
       stats: pokeData.stats.map(s => s.stat.name),
+      base_stat: pokeData.stats.map(b => b.base_stat),
+      effort: pokeData.stats.map(e => e.effort),
     };
 
-   /* const pokemonStats ={
-      name: pokeData.stats.map(s => s.stat.name),
-      base_stat: pokeData.stats.map(s => s.stat.base_stat),
-      effort: pokeData.stats.map(s => s.stat.effort),
-    }*/
-
+ 
     pokemonArray.push(pokemon);
-    //pokemonArray.push(pokemonStats);
   }
 }
 
+/*async function fetchPokemonStats(array) {
+    for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {  
+    const pokeResponse = await fetch(array[urlIndex]);          
+    const pokeData = await pokeResponse.json();  
+
+      const pokemonStats ={
+      name: pokeData.stats.map(s => s.stat.name),
+      base_stat: pokeData.stats.map(s => s.stat.base_stat),
+      effort: pokeData.stats.map(s => s.stat.effort),
+    }
+  pokemonArray.push(pokemonStats);
+}
+}*/
+
 function renderPokemonCards(array){
     let contentRef = document.getElementById('content');
-    contentRef.innerHTML += "";
+    contentRef.innerHTML = "";
 
     for (let index = 0; index < array.length; index++) {
         contentRef.innerHTML += getPokeCardTemplate(index)
@@ -82,4 +93,9 @@ function toggleDNone(idName, idName2, idName3){
   id.classList.toggle('toggle_d_none');
   id2.classList.add('toggle_d_none');
   id3.classList.add('toggle_d_none');
+}
+
+function loadingSpinenr (){
+   let contentRef = document.getElementById('content');
+   return contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`
 }

@@ -123,3 +123,8 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+
+.loading-spinner{
+  margin-top: 64px;
+  width: 125px;
+}
