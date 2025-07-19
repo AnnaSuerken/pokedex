@@ -8,8 +8,10 @@ async function init() {
   const pokemonUrls = await fetchPokemonUrls();
   await fetchPokemonDetails(pokemonUrls);
   renderPokemonCards(pokemonArray);
+  const evoUrls = await fetchEvoUrl();
+  await fetchPokemonEvo(evoUrls);
   console.log(pokemonArray);
-
+  console.log(pokemonEvoChain);
 }
 
 async function fetchPokemonUrls() {
@@ -37,25 +39,9 @@ async function fetchPokemonDetails(array) {
       base_stat: pokeData.stats.map(b => b.base_stat),
       effort: pokeData.stats.map(e => e.effort),
     };
-
- 
     pokemonArray.push(pokemon);
   }
 }
-
-/*async function fetchPokemonStats(array) {
-    for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {  
-    const pokeResponse = await fetch(array[urlIndex]);          
-    const pokeData = await pokeResponse.json();  
-
-      const pokemonStats ={
-      name: pokeData.stats.map(s => s.stat.name),
-      base_stat: pokeData.stats.map(s => s.stat.base_stat),
-      effort: pokeData.stats.map(s => s.stat.effort),
-    }
-  pokemonArray.push(pokemonStats);
-}
-}*/
 
 function renderPokemonCards(array){
     let contentRef = document.getElementById('content');

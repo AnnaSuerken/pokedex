@@ -1,2 +1,2 @@
 let pokemonArray=[];
-let pokemonStats=[];
+let pokemonEvoChain = [];

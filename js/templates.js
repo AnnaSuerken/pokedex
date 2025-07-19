@@ -78,17 +78,11 @@ function getPokeCardTemplateLarge(currentIndex) {
                         </div>
             </div>
             <table class="detail-view-main toggle_d_none" id="evo-chain">
-                        <tr>
-                        <th>Height: </th>
-                        <td>${pokemonArray[currentIndex].height}</td>
-                        <tr>
-                        <th>Weight: </th>
-                        <td>${pokemonArray[currentIndex].weight}</td>
-                        <tr>
-                        <th>Base experience: </th>
-                        <td></td>
-                        <tr>
-            </table>`;
+                        <div>
+                          <img src="${pokemonEvoChain[currentIndex].images[0]}" alt="" class="evo-img">
+                          <img src="${pokemonEvoChain[currentIndex].images[1]}" alt="" class="evo-img">
+                          <img src="${pokemonEvoChain[currentIndex].images[2]}" alt="" class="evo-img">
+                        </div>`;
 }
 
 function getTypeIcon(index) {
