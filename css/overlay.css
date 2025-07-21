@@ -16,8 +16,7 @@
 .pokecard-overlay{
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;   
 }
 
 .pokecard-large{
@@ -122,3 +121,13 @@ h2 {
     margin-left: 50px;
 }
 
+.evo-img{
+    width: 100px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.evo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

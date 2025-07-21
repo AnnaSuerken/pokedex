@@ -1,4 +1,4 @@
-const evoUrl = "https://pokeapi.co/api/v2/evolution-chain/?offset=0&limit=40";
+const evoUrl = "https://pokeapi.co/api/v2/evolution-chain/?limit=20&offset=0";
 
 async function fetchEvoUrl() {
   const response = await fetch(evoUrl);

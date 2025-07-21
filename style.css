@@ -18,8 +18,15 @@ header {
   height: 125px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 15px;
+}
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .logo {
@@ -99,16 +106,19 @@ h2 {
   gap: 10px;
 }
 
-button {
-  padding: 10px;
+.closing-button {
   position: absolute;
   right: 35px;
   top: 35px;
+}
+
+button{
   background-color: rgb(1, 41, 65, 0.9);
   border-color: white;
   border-style: solid;
   color: white;
   cursor: pointer;
+  padding: 10px;
 }
 
 button:hover {
@@ -131,4 +141,17 @@ button:hover {
 
 th {
   font-weight: normal;
+}
+
+.search-bar{
+  border-radius: 15px;
+  padding: 8px;
+  margin-right: 64px;
+}
+
+
+.stack-slide-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

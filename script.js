@@ -1,6 +1,7 @@
 const apiUrl = "https://pokeapi.co/api/v2/pokedex/";
-const baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
+let baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 const pokeUrl = "https://pokeapi.co/api/v2/pokemon/";
+let nextStackUrl ="";
 let currentIndex = 0;
 
 async function init() {
@@ -12,6 +13,7 @@ async function init() {
   await fetchPokemonEvo(evoUrls);
   console.log(pokemonArray);
   console.log(pokemonEvoChain);
+  console.log(nextStackUrl);
 }
 
 async function fetchPokemonUrls() {
@@ -20,6 +22,40 @@ async function fetchPokemonUrls() {
   const urls = data.results.map((pokemon) => pokemon.url);
   return urls;
 }
+
+async function fetchNextStackUrl(){
+  const response = await fetch(baseUrl);
+  const data = await response.json();
+  const nextStackUrl = data.next;
+
+  if (nextStackUrl === null) {
+    return alert("Du bist beim letzten Stack angelangt")
+  }
+
+  baseUrl = nextStackUrl;
+  let contentRef = document.getElementById('content');
+  contentRef.innerHTML = "";
+  pokemonArray = [];
+  pokemonEvoChain = [];
+  init();
+}
+
+async function fetchPreviousStackUrl(){
+  const response = await fetch(baseUrl);
+  const data = await response.json();
+  const previousUrl = data.previous;
+
+  if (previousUrl === null) {
+    return alert("Du bist beim ersten Stack angelangt")
+  }
+  baseUrl = previousUrl;
+  let contentRef = document.getElementById('content');
+  contentRef.innerHTML = "";
+  pokemonArray = [];
+  pokemonEvoChain = [];
+  init();
+}
+
 
 async function fetchPokemonDetails(array) {
   for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {  //for loop to iterate through different API urls
@@ -60,7 +96,6 @@ function toggleOverlay(index){
   currentIndex = index;
   overlay.classList.toggle('toggle_d_none');
   overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
-
 }
 
 function exitOverlay(){
@@ -68,7 +103,6 @@ function exitOverlay(){
   let overlayContent = document.getElementById('overlayContent');
   overlay.classList.toggle('toggle_d_none');
   overlayContent.innerHTML = "";
-
 }
 
 function toggleDNone(idName, idName2, idName3){
@@ -85,3 +119,14 @@ function loadingSpinenr (){
    let contentRef = document.getElementById('content');
    return contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`
 }
+
+
+/*function searchPokemon(){
+  let input = document.getElementById('search-bar').value;
+  let pokemonName = pokemonArray.name;
+  
+  if( input === pokemonArray.filter(pokemonName => pokemonName.includes(input))){
+    return 
+
+  }
+}*/
