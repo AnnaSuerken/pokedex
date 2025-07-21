@@ -8,7 +8,7 @@ async function fetchEvoUrl() {
   return evoUrls;
 }
 
-async function fetchPokemonEvo(array) {
+async function fetchPokemonEvo(array) {                               //has to be reduced to 14 rows
   for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {
     const pokeEvoResponse = await fetch(array[urlIndex]);
     const pokeEvoData = await pokeEvoResponse.json();

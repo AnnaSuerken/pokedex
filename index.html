@@ -9,8 +9,10 @@
     <script src="./js/db.js"></script>
     <script src="./js/evochain.js"></script>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./css/types.css" />
-    <link rel="stylesheet" href="./css/overlay.css" />
+    <link rel="stylesheet" href="./css/types.css"/>
+    <link rel="stylesheet" href="./css/assets.css"/>
+    <link rel="stylesheet" href="./css/overlay.css"/>
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
   </head>
   <body onload="init()">
     <div>
@@ -26,7 +28,7 @@
           onkeyup="searchPokemon()"
           type="text"
           name="Suchen"
-          placeholder="Suche ein Pokemon´..."
+          placeholder="Search Pokemon´..."
         />
       </header>
       <main>
@@ -34,9 +36,9 @@
       </main>
 
       <footer>
-        <div class="stack-slide-section">
-        <button onclick="fetchPreviousStackUrl()">Vorheriger Stack</button>
-        <button onclick="fetchNextStackUrl()">Nächster Stack</button>
+        <div class="stack-slide-section" id="stack-buttons">
+        <button onclick="fetchPreviousStackUrl()">previous stack</button>
+        <button onclick="fetchNextStackUrl()">next stack</button>
         </div>
       </footer>
     </div>

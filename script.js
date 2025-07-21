@@ -57,7 +57,7 @@ async function fetchPreviousStackUrl(){
 }
 
 
-async function fetchPokemonDetails(array) {
+async function fetchPokemonDetails(array) {             //has to be reduced to 14 rows
   for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {  //for loop to iterate through different API urls
     const pokeResponse = await fetch(array[urlIndex]);          //fetching each individual Pokemon URL
     const pokeData = await pokeResponse.json();                 
@@ -78,6 +78,7 @@ async function fetchPokemonDetails(array) {
     pokemonArray.push(pokemon);
   }
 }
+
 
 function renderPokemonCards(array){
     let contentRef = document.getElementById('content');
@@ -117,7 +118,8 @@ function toggleDNone(idName, idName2, idName3){
 
 function loadingSpinenr (){
    let contentRef = document.getElementById('content');
-   return contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`
+   let footerRef = document.getElementById('stack-buttons')
+   return contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`;
 }
 
 
