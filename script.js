@@ -93,9 +93,9 @@ function renderPokemonCards(array){
 function toggleOverlay(index){
   let overlay = document.getElementById('overlay');
   let overlayContent = document.getElementById('overlayContent');
-  overlayContent.innerHTML += "";
   currentIndex = index;
-  overlay.classList.toggle('toggle_d_none');
+  overlay.classList.remove('toggle_d_none');
+  document.body.classList.add('no-scroll');
   overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
 }
 
@@ -103,6 +103,7 @@ function exitOverlay(){
   let overlay = document.getElementById('overlay');
   let overlayContent = document.getElementById('overlayContent');
   overlay.classList.toggle('toggle_d_none');
+  document.body.classList.remove('no-scroll');
   overlayContent.innerHTML = "";
 }
 
@@ -122,6 +123,19 @@ function loadingSpinenr (){
    return contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`;
 }
 
+
+function nextButton(){
+  let overlayContent = document.getElementById('overlayContent');
+  
+  
+  if(currentIndex >= pokemonArray.length - 1){
+       
+    currentIndex++;
+    
+  }
+  overlayContent.innerHTML = "";
+  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
+}
 
 /*function searchPokemon(){
   let input = document.getElementById('search-bar').value;

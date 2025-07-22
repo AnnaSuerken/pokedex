@@ -130,3 +130,7 @@ footer {
     text-align: left;
     margin-left: 50px;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
