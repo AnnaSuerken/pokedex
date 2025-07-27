@@ -45,13 +45,11 @@
         </div>
       </footer>
     </div>
-    <div class="overlay toggle_d_none" id="overlay">
-      <div class="pokecard-overlay">
-        <button onclick="exitOverlay()" class="closing-button">X</button>
+    <div onclick="exitOverlay(event)" class="overlay toggle_d_none" id="overlay">
+        <button onclick="exitButton()" class="closing-button">X</button>
         <div class="pokecard-large">
           <div class="overlayContent" id="overlayContent"></div>
         </div>
-      </div>
     </div>
   </body>
 </html>

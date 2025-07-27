@@ -118,6 +118,7 @@ function getPokeCardTemplateLarge(currentIndex) {
 
 function connectingEvoPokemon() {
   let currentPokemonName = pokemonArray[currentIndex].name;
+  let chain = pokemonEvoChain.chain;
   let evoPokemon = pokemonEvoChain.find(e => e.name === currentPokemonName);
 
   if( !evoPokemon || !evoPokemon.images || evoPokemon.images.length === 0) //// => not quite correct, have to adjust so all pokemon have evole chain

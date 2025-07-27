@@ -1,9 +1,3 @@
-const apiUrl = "https://pokeapi.co/api/v2/pokedex/";
-let baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
-const pokeUrl = "https://pokeapi.co/api/v2/pokemon/";
-let nextStackUrl ="";
-let currentIndex = 0;
-
 async function init() {
   loadingSpinner();
 
@@ -15,10 +9,9 @@ async function init() {
 
   renderPokemonCards(pokemonArray);
 
-  console.log(pokemonArray);
-  console.log(pokemonEvoChain);
-  console.log(nextStackUrl);
-  console.table(pokemonArray.map(p => ({ id: p.id, name: p.name })));
+  console.log(pokemonArray);//delete
+  console.log(pokemonEvoChain);//delete
+  console.log(nextStackUrl); //delete
 }
 
 async function fetchPokemonUrls() {
@@ -68,7 +61,7 @@ async function fetchPokemonDetails(array) {
       const pokeResponse = await fetch(url);
       const pokeData = await pokeResponse.json();
 
-      return {                                           //defining object for push()
+      return {                                        
       name: pokeData.name,
       image: pokeData.sprites.other.home.front_default,
       id: pokeData.id,
@@ -87,7 +80,6 @@ AllPokemonData.sort((a, b) => a.id - b.id);
 
 pokemonArray.push(...AllPokemonData);
 }
-
 
 
 function renderPokemonCards(array){
@@ -109,13 +101,21 @@ function toggleOverlay(index){
   overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
 }
 
-function exitOverlay(){
+function exitOverlay(event){
+  let overlay = document.getElementById('overlay');
+
+  if(event.target === overlay) {
+  exitButton();
+}}
+
+function exitButton(){
   let overlay = document.getElementById('overlay');
   let overlayContent = document.getElementById('overlayContent');
-  overlay.classList.toggle('toggle_d_none');
+  overlay.classList.add('toggle_d_none');
   document.body.classList.remove('no-scroll');
   overlayContent.innerHTML = "";
 }
+
 
 function toggleDNone(idName, idName2, idName3){
   let id = document.getElementById(`${idName}`);
@@ -137,7 +137,6 @@ function loadingSpinner (){
 function nextButton(){
   let overlayContent = document.getElementById('overlayContent');
   
-  
   if(currentIndex >= pokemonArray.length - 1)
     return;
     currentIndex++;
@@ -147,7 +146,6 @@ function nextButton(){
 
 function previousButton(){
   let overlayContent = document.getElementById('overlayContent');
-  
   
   if(currentIndex <= 0)
     return;
