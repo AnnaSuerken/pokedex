@@ -5,15 +5,20 @@ let nextStackUrl ="";
 let currentIndex = 0;
 
 async function init() {
-  loadingSpinenr();
+  loadingSpinner();
+
   const pokemonUrls = await fetchPokemonUrls();
   await fetchPokemonDetails(pokemonUrls);
-  renderPokemonCards(pokemonArray);
+
   const evoUrls = await fetchEvoUrl();
   await fetchPokemonEvo(evoUrls);
+
+  renderPokemonCards(pokemonArray);
+
   console.log(pokemonArray);
   console.log(pokemonEvoChain);
   console.log(nextStackUrl);
+  console.table(pokemonArray.map(p => ({ id: p.id, name: p.name })));
 }
 
 async function fetchPokemonUrls() {
@@ -57,12 +62,13 @@ async function fetchPreviousStackUrl(){
 }
 
 
-async function fetchPokemonDetails(array) {             //has to be reduced to 14 rows
-  for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {  //for loop to iterate through different API urls
-    const pokeResponse = await fetch(array[urlIndex]);          //fetching each individual Pokemon URL
-    const pokeData = await pokeResponse.json();                 
+async function fetchPokemonDetails(array) {    
+  const AllPokemonData = await Promise.all(
+    array.map(async (url) =>{
+      const pokeResponse = await fetch(url);
+      const pokeData = await pokeResponse.json();
 
-    const pokemon = {                                           //defining object for push()
+      return {                                           //defining object for push()
       name: pokeData.name,
       image: pokeData.sprites.other.home.front_default,
       id: pokeData.id,
@@ -75,9 +81,13 @@ async function fetchPokemonDetails(array) {             //has to be reduced to 1
       base_stat: pokeData.stats.map(b => b.base_stat),
       effort: pokeData.stats.map(e => e.effort),
     };
-    pokemonArray.push(pokemon);
-  }
+  })
+)
+AllPokemonData.sort((a, b) => a.id - b.id);
+
+pokemonArray.push(...AllPokemonData);
 }
+
 
 
 function renderPokemonCards(array){
@@ -117,7 +127,7 @@ function toggleDNone(idName, idName2, idName3){
   id3.classList.add('toggle_d_none');
 }
 
-function loadingSpinenr (){
+function loadingSpinner (){
    let contentRef = document.getElementById('content');
    let footerRef = document.getElementById('stack-buttons')
    return contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`;
@@ -128,11 +138,21 @@ function nextButton(){
   let overlayContent = document.getElementById('overlayContent');
   
   
-  if(currentIndex >= pokemonArray.length - 1){
-       
+  if(currentIndex >= pokemonArray.length - 1)
+    return;
     currentIndex++;
-    
-  }
+  overlayContent.innerHTML = "";
+  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
+}
+
+function previousButton(){
+  let overlayContent = document.getElementById('overlayContent');
+  
+  
+  if(currentIndex <= 0)
+    return;
+    currentIndex--;
+
   overlayContent.innerHTML = "";
   overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
 }

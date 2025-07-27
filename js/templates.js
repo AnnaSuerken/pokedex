@@ -17,7 +17,7 @@ function getPokeCardTemplate(index) {
 
 function getPokeCardTemplateLarge(currentIndex) {
   return `<div class="overlay-header">
-            <img src="./img/left_chevron_white.png" onclick="nextButton()" alt="previous card" class="icon-img">
+            <img src="./img/left_chevron_white.png" onclick="previousButton()" alt="previous card" class="icon-img">
             <span># ${pokemonArray[currentIndex].id}</span>
             <span>${pokemonArray[currentIndex].name.toUpperCase()}</span>
             <img src="./img/right_chevron_white.png" onclick="nextButton()" alt="next card" class="icon-img">

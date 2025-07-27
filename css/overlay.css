@@ -94,6 +94,8 @@ h2 {
 .detail-view-main{
     margin-top: 15px;
     width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .progress-bar-container{
