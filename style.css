@@ -9,7 +9,7 @@ header {
   gap: 15px;
 }
 
-.logo-container{
+.logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,12 +104,12 @@ footer {
   justify-content: center;
 }
 
-.loading-spinner{
+.loading-spinner {
   margin-top: 64px;
   width: 125px;
 }
 
-.search-bar{
+.search-bar {
   border-radius: 15px;
   padding: 8px;
   margin-right: 64px;
@@ -119,16 +119,16 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
-.toggle_d_none{
-    display: none !important;
+.toggle_d_none {
+  display: none !important;
 }
 
-
-.text-align{
-    text-align: left;
-    margin-left: 50px;
+.text-align {
+  text-align: left;
+  margin-left: 50px;
 }
 
 .no-scroll {
