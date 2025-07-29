@@ -134,3 +134,87 @@ h2 {
 .icon-img:hover{
     transform: scale(1.2);
 }
+
+/* Responsive Design */
+
+@media (max-width: 660px){
+
+.pokecard-large{
+    width: 375px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.overlay-pokemon-img {
+    width: 225px;
+}
+
+
+.overlay-bg-size {
+  height: 275px;
+  width: 100%;
+}
+
+
+.progress-bar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;    
+}
+
+.stats-content-container{
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.detail-view-main{
+    margin-top: 15px;
+    width: 85%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+}
+
+@media (max-width: 430px){
+
+.pokecard-large{
+    width: 250px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.overlay-pokemon-img {
+    width: 225px;
+}
+
+
+.overlay-bg-size {
+  height: 275px;
+  width: 100%;
+}
+
+
+.progress-bar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;    
+}
+
+.stats-content-container{
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.detail-view-main{
+    margin-top: 15px;
+    width: 85%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+}
