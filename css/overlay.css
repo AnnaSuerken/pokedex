@@ -97,7 +97,7 @@ h2 {
 
 .detail-view-main{
     margin-top: 15px;
-    width: 100%;
+    width: 95%;
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -105,15 +105,16 @@ h2 {
 .progress-bar-container{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;    
+    align-items: flex-start; 
+    margin-right: 15px;
 }
 
 .stats-content-container{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .evo-img{
@@ -125,6 +126,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 15px;
 }
 
 .icon-img{
@@ -133,6 +135,14 @@ h2 {
 
 .icon-img:hover{
     transform: scale(1.2);
+}
+
+.detail-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 /* Responsive Design */
@@ -158,22 +168,13 @@ h2 {
 }
 
 
-.progress-bar-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;    
-}
-
 .stats-content-container{
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .detail-view-main{
-    margin-top: 15px;
     width: 85%;
-    margin-left: 15px;
-    margin-right: 15px;
 }
 
 }
@@ -182,6 +183,7 @@ h2 {
 
 .pokecard-large{
     width: 250px;
+    height: 800px;
 }
 
 h2 {
@@ -211,10 +213,21 @@ h2 {
 }
 
 .detail-view-main{
-    margin-top: 15px;
-    width: 85%;
-    margin-left: 15px;
-    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.evo-container{
+    flex-direction: column;
+}
+
+.stats-content-container{
+    flex-direction: column;
+}
+
+.detail-content{
+    flex-direction: column;
 }
 
 }

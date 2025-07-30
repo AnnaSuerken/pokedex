@@ -33,20 +33,24 @@ function getPokeCardTemplateLarge(currentIndex) {
                 <span class="detail-category" onclick="toggleDNone('stats-table', 'main-table', 'evo-chain')">stats</span>
                 <span class="detail-category" onclick="toggleDNone('evo-chain', 'stats-table', 'main-table')">evo chain</span>
             </div>
-            <table class="detail-view-main text-align" id="main-table">
-                        <tr>
-                        <th>height: </th>
-                        <td>${pokemonArray[currentIndex].height}</td>
-                        <tr>
-                        <th>weight: </th>
-                        <td>${pokemonArray[currentIndex].weight}</td>
-                        <tr>
-                        <th>base experience: </th>
-                        <td>${pokemonArray[currentIndex].experience}</td>
-                        <tr>
-                        <th>abilities: </th>
-                        <td>${pokemonArray[currentIndex].abilities}</td>
-            </table>
+            <div class="detail-view-main text-align" id="main-table">
+                      <div class="detail-content">
+                        <span>height: </span>
+                        <span>${pokemonArray[currentIndex].height}</span>
+                      </div>
+                      <div class="detail-content">
+                        <span>weight: </span>
+                        <span>${pokemonArray[currentIndex].weight}</span>
+                      </div>
+                      <div class="detail-content">
+                        <span>base experience: </span>
+                        <span>${pokemonArray[currentIndex].experience}</span>
+                      </div>
+                      <div class="detail-content">
+                        <span>abilities: </span>
+                        <span>${pokemonArray[currentIndex].abilities}</span>
+                      </div>
+            </div>
             <div class="detail-view-main toggle_d_none" id="stats-table">
                         <div class="stats-content-container">
                           <span><label for="stats">${
@@ -121,7 +125,7 @@ function connectingEvoPokemon() {
   let chain = pokemonEvoChain.chain;
   let evoPokemon = pokemonEvoChain.find(e => e.name === currentPokemonName);
 
-  if( !evoPokemon || !evoPokemon.images || evoPokemon.images.length === 0) //// => not quite correct, have to adjust so all pokemon have evole chain
+  if( !evoPokemon || !evoPokemon.images || evoPokemon.images.length === 0) //// => not quite correct, have to adjust so all pokemon have evolve chain
     return "<span>Keine Evolutionsdaten vorhanden.</span>";
 
   return evoPokemon.images

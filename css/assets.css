@@ -23,6 +23,14 @@ header {
   gap: 15px;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 150px;
+}
+
 footer {
   background-color: #033150;
   color: white;
@@ -44,22 +52,18 @@ h2 {
 }
 
 button{
-  background-color: rgb(1, 41, 65, 0.9);
-  border-color: white;
-  border-style: solid;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-style: none;
+  border-radius: 20px;
+  color: #033150;
   cursor: pointer;
   padding: 10px;
+  font-weight: bold;
 }
 
 button:hover {
   transform: scale(1.2);
 }
-
-th {
-  font-weight: normal;
-}
-
 
 /* Responsive Design */
 
@@ -92,6 +96,11 @@ th {
     justify-content: center;
     align-items: center;
     gap: 25px;
+  }
+
+  table {
+    margin-left: 15px;
+    margin-right: 15px;
   }
 
 }

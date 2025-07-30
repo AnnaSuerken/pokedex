@@ -11,14 +11,6 @@
   margin-left: 64px;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-bottom: 150px;
-}
-
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -135,6 +127,15 @@ main {
   .logo {
   margin-top: 25px;
   margin-left: 0;
+}
+
+.poke-card {
+  background-color: #011624;
+  height: 300px;
+  width: 200px;
+  margin: 32px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .search-section {
