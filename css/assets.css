@@ -65,6 +65,15 @@ button:hover {
   transform: scale(1.2);
 }
 
+input{
+  background-color: rgba(245, 246, 247, 0.1);
+  border: none;
+}
+
+::placeholder{
+  color: white;
+}
+
 /* Responsive Design */
 
 @media(max-width: 660px){

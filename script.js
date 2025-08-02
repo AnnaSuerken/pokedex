@@ -148,13 +148,3 @@ function previousButton() {
   overlayContent.innerHTML = "";
   overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
 }
-
-/*function searchPokemon(){
-  let input = document.getElementById('search-bar').value;
-  let pokemonName = pokemonArray.name;
-  
-  if( input === pokemonArray.filter(pokemonName => pokemonName.includes(input))){
-    return 
-
-  }
-}*/
