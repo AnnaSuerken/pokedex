@@ -78,8 +78,8 @@ function buildPokemonData(pokeData){
         abilities: pokeData.abilities.map((a) => a.ability.name),
         type: pokeData.types.map((t) => t.type.name),
         stats: pokeData.stats.map((s) => s.stat.name),
-        base_stat: pokeData.stats.map((b) => b.base_stat),
-        effort: pokeData.stats.map((e) => e.effort),
+        base_stat: pokeData.stats.map((s) => s.base_stat),
+        effort: pokeData.stats.map((s) => s.effort),
       };
 }
 

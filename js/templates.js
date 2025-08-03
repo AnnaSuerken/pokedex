@@ -116,16 +116,21 @@ function getPokeCardTemplateLarge(currentIndex, array) {
 
 function connectingEvoPokemon(array) {
   let currentPokemonName = array[currentIndex].name;
-  let chain = pokemonEvoChain.chain;
-  let evoPokemon = pokemonEvoChain.find(e => e.name === currentPokemonName);
+  let evoPokemon = pokemonEvoChain.find(e => e.chain.includes(currentPokemonName));
 
-  if( !evoPokemon || !evoPokemon.images || evoPokemon.images.length === 0) //// => not quite correct, have to adjust so all pokemon have evolve chain
-    return "<span>Keine Evolutionsdaten vorhanden.</span>";
+  if(!evoPokemon) {
+    return `<span>No evolution chain found</span>`;
+  }
 
-  return evoPokemon.images
-    .filter(img => img) //filters the array and deletes all emty values
-    .map(img => `<img src="${img}" class="evo-img" alt="${evoPokemon.name}">`) //turns value into an HTML string so I can use it as a src file
-    .join('') //combines all strings to one large string
+  return evoPokemon.chain.map(name=> {
+    const foundPokemon = pokemonArray.find(p => p.name === name);
+    if(foundPokemon){
+      return `<img src="${foundPokemon.image}" class="evo-img" alt="${foundPokemon.name}">`
+    } else {
+      return '';
+    }
+  }).join('')
+
 }
 
 function getTypeIcon(index, array) {

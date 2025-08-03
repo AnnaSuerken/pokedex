@@ -8,7 +8,7 @@ async function fetchEvoUrl() {
   return evoUrls;
 }
 
-async function fetchPokemonEvo(array) {                               //has to be reduced to 14 rows
+async function fetchPokemonEvo(array) {
   for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {
     const pokeEvoResponse = await fetch(array[urlIndex]);
     const pokeEvoData = await pokeEvoResponse.json();
@@ -21,21 +21,14 @@ async function fetchPokemonEvo(array) {                               //has to b
     }
     traverse(pokeEvoData.chain);
 
-    const images = names.map(name => {
-        const match = pokemonArray.find(p =>p.name === name);
-        return match ? match.image : null;
-    });
-
-    const chainData = {
-      id: pokeEvoData.id,
-      name: names[0],
-      chain: names,
-      images: images,
-    };
-
-    pokemonEvoChain.push(chainData);
+    pokemonEvoChain.push(pushChainData(pokeEvoData, names));
   }
-
 }
 
-
+function pushChainData(pokeEvoData, names) {
+  return {
+    id: pokeEvoData.id,
+    name: names[0],
+    chain: names,
+  };
+}
