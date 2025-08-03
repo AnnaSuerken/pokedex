@@ -97,9 +97,8 @@ h2 {
 
 .detail-view-main{
     margin-top: 15px;
-    width: 95%;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .progress-bar-container{
@@ -113,20 +112,16 @@ h2 {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-left: 15px;
-    margin-right: 15px;
 }
 
 .evo-img{
     width: 100px;
-    margin-left: 15px;
-    margin-right: 15px;
 }
 .evo-container{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 15px;
+    gap: 25px;
 }
 
 .icon-img{
@@ -140,9 +135,7 @@ h2 {
 .detail-content{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-left: 15px;
-    margin-right: 15px;
+    gap: 15px;
 }
 
 /* Responsive Design */
@@ -183,51 +176,49 @@ h2 {
 
 .pokecard-large{
     width: 250px;
-    height: 750px;
+    height: 525px;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .overlay-pokemon-img {
-    width: 225px;
+    width: 75px;
 }
 
 
 .overlay-bg-size {
-  height: 275px;
+  height: 100px;
   width: 100%;
 }
 
-
-.progress-bar-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;    
+.evo-img{
+    width: 80px;
 }
 
 .stats-content-container{
-    margin-left: 32px;
-    margin-right: 32px;
-}
-
-.detail-view-main{
-    display: flex;
+    margin-left: 25px;
+    margin-right: 5px;
     flex-direction: column;
-    gap: 15px;
-}
-
-.evo-container{
-    flex-direction: column;
-}
-
-.stats-content-container{
-    flex-direction: column;
+    justify-content: center;
 }
 
 .detail-content{
+    margin-left: 25px;
+    margin-right: 5px;
     flex-direction: column;
+    justify-content: center;
+}
+
+progress {
+    width: 150px;
+}
+
+.evo-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 }

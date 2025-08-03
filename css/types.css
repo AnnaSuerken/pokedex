@@ -178,3 +178,94 @@
   background-color: #3099e1;
 }
 /* -------------------------------------- */
+@media (max-width: 430px){
+.icon_fire {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_grass {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_bug {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_dark {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_dragon {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_electric {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_fairy {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_fighting {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_flying {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_ghost {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_ground {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_ice {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_normal {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_poison {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_psychic {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_rock {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_steel {
+  width: 25px;
+  height: 25px;
+}
+
+.icon_water {
+  width: 25px;
+  height: 25px;
+}
+}

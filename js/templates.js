@@ -101,7 +101,7 @@ function getPokeCardTemplateLarge(currentIndex, array) {
                           <div class="progress-bar-container">${
                             array[currentIndex].base_stat[4]
                           }
-                          <progress id="stats" max="300" value="${
+                          <progress id="stats" max="375" value="${
                             array[currentIndex].base_stat[4]
                           }"></progress>
                           </div>
