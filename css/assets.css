@@ -75,6 +75,11 @@ input{
   color: white;
 }
 
+progress {
+    width: 150px;
+    margin-left: 10px;
+}
+
 /* Responsive Design */
 
 @media(max-width: 660px){

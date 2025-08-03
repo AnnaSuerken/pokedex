@@ -97,7 +97,7 @@ h2 {
 
 .detail-view-main{
     margin-top: 15px;
-    margin-left: 5px;
+    margin-left: 25px;
     margin-right: 5px;
 }
 
@@ -105,7 +105,6 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start; 
-    margin-right: 15px;
 }
 
 .stats-content-container{
@@ -205,14 +204,10 @@ h2 {
 }
 
 .detail-content{
-    margin-left: 25px;
     margin-right: 5px;
     flex-direction: column;
     justify-content: center;
-}
-
-progress {
-    width: 150px;
+    gap: 0px;
 }
 
 .evo-container{
