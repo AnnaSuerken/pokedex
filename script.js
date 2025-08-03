@@ -7,7 +7,7 @@ async function init() {
   const evoUrls = await fetchEvoUrl();
   await fetchPokemonEvo(evoUrls);
 
-  renderPokemonCards(pokemonArray);
+  renderPokemonCards(currentPokemonArray = pokemonArray);
 
   console.log(pokemonArray); //delete
   console.log(pokemonEvoChain); //delete
@@ -55,29 +55,32 @@ async function fetchPreviousStackUrl() {
 }
 
 async function fetchPokemonDetails(array) {
-  const AllPokemonData = await Promise.all(
+  const allPokemonData = await Promise.all(
     array.map(async (url) => {
       const pokeResponse = await fetch(url);
       const pokeData = await pokeResponse.json();
 
-      return {
+      return buildPokemonData(pokeData);
+    })
+  );
+  allPokemonData.sort((a, b) => a.id - b.id);
+
+  pokemonArray.push(...allPokemonData);
+}
+
+function buildPokemonData(pokeData){
+  return {
         name: pokeData.name,
         image: pokeData.sprites.other.home.front_default,
         id: pokeData.id,
         height: pokeData.height,
         weight: pokeData.weight,
-        experience: pokeData.base_experience,
         abilities: pokeData.abilities.map((a) => a.ability.name),
         type: pokeData.types.map((t) => t.type.name),
         stats: pokeData.stats.map((s) => s.stat.name),
         base_stat: pokeData.stats.map((b) => b.base_stat),
         effort: pokeData.stats.map((e) => e.effort),
       };
-    })
-  );
-  AllPokemonData.sort((a, b) => a.id - b.id);
-
-  pokemonArray.push(...AllPokemonData);
 }
 
 function renderPokemonCards(array) {
@@ -85,17 +88,20 @@ function renderPokemonCards(array) {
   contentRef.innerHTML = "";
 
   for (let index = 0; index < array.length; index++) {
-    contentRef.innerHTML += getPokeCardTemplate(index);
+    contentRef.innerHTML += getPokeCardTemplate(index, array);
   }
 }
 
-function toggleOverlay(index) {
+function toggleOverlay(index, array = currentPokemonArray) {
+  currentIndex = index;
+  currentPokemonArray = array;
+
   let overlay = document.getElementById("overlay");
   let overlayContent = document.getElementById("overlayContent");
-  currentIndex = index;
+
   overlay.classList.remove("toggle_d_none");
   document.body.classList.add("no-scroll");
-  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
+  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
 }
 
 function exitOverlay(event) {
@@ -126,25 +132,28 @@ function toggleDNone(idName, idName2, idName3) {
 
 function loadingSpinner() {
   let contentRef = document.getElementById("content");
-  let footerRef = document.getElementById("stack-buttons");
   return (contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`);
 }
 
 function nextButton() {
-  let overlayContent = document.getElementById("overlayContent");
-
-  if (currentIndex >= pokemonArray.length - 1) return;
   currentIndex++;
-  overlayContent.innerHTML = "";
-  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
+
+  if (currentIndex >= currentPokemonArray.length) {
+    currentIndex = currentPokemonArray.length -1;
+  }
+  updateOverlayCard();
 }
 
 function previousButton() {
-  let overlayContent = document.getElementById("overlayContent");
-
-  if (currentIndex <= 0) return;
   currentIndex--;
 
-  overlayContent.innerHTML = "";
-  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex);
+  if (currentIndex <= 0) {
+  currentIndex = 0;
+  }
+  updateOverlayCard();
+}
+
+function updateOverlayCard() {
+  let overlayContent = document.getElementById("overlayContent");
+  overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
 }

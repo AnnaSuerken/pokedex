@@ -68,6 +68,7 @@ button:hover {
 input{
   background-color: rgba(245, 246, 247, 0.1);
   border: none;
+  color:  white;
 }
 
 ::placeholder{

@@ -4,6 +4,7 @@ const pokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 let nextStackUrl ="";
 let currentIndex = 0;
 
+
 let pokemonArray=[];
 let pokemonEvoChain = [];
 let pokemonStats=[];

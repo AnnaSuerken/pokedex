@@ -8,6 +8,7 @@
     <script src="./js/templates.js"></script>
     <script src="./js/db.js"></script>
     <script src="./js/evochain.js"></script>
+    <script src="./js/search.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./css/types.css"/>
     <link rel="stylesheet" href="./css/assets.css"/>
@@ -22,7 +23,13 @@
           <h1>POKEDEX</h1>
         </div>
         <div class="search-section">
-        <input id="search-bar" class="search-bar" type="search" name="search" placeholder="Search Pokemon..."/>
+        <input 
+          id="search-bar" 
+          class="search-bar" 
+          type="text" 
+          name="search" 
+          placeholder="Search Pokemon..."/>
+          
         <button onclick="searchPokemon()">SEARCH</button>
         </div>
       </header>
