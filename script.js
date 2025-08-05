@@ -7,6 +7,8 @@ async function init() {
   const evoUrls = await fetchEvoUrl();
   await fetchPokemonEvo(evoUrls);
 
+  await loadPokemonApi();
+
   renderPokemonCards(currentPokemonArray = pokemonArray);
 
   console.log(pokemonArray); //delete
@@ -44,7 +46,7 @@ async function fetchPreviousStackUrl() {
   const previousUrl = data.previous;
 
   if (previousUrl === null) {
-    return alert("You've reached the first stack!");
+    return alert("You've reached the first stack!"); 
   }
   baseUrl = previousUrl;
   let contentRef = document.getElementById("content");
@@ -68,18 +70,18 @@ async function fetchPokemonDetails(array) {
   pokemonArray.push(...allPokemonData);
 }
 
-function buildPokemonData(pokeData){
+function buildPokemonData(data){
   return {
-        name: pokeData.name,
-        image: pokeData.sprites.other.home.front_default,
-        id: pokeData.id,
-        height: pokeData.height,
-        weight: pokeData.weight,
-        abilities: pokeData.abilities.map((a) => a.ability.name),
-        type: pokeData.types.map((t) => t.type.name),
-        stats: pokeData.stats.map((s) => s.stat.name),
-        base_stat: pokeData.stats.map((s) => s.base_stat),
-        effort: pokeData.stats.map((s) => s.effort),
+        name: data.name,
+        image: data.sprites.other.home.front_default,
+        id: data.id,
+        height: data.height,
+        weight: data.weight,
+        abilities: data.abilities.map((a) => a.ability.name),
+        type: data.types.map((t) => t.type.name),
+        stats: data.stats.map((s) => s.stat.name),
+        base_stat: data.stats.map((s) => s.base_stat),
+        effort: data.stats.map((s) => s.effort),
       };
 }
 
