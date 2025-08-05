@@ -37,7 +37,7 @@ function searchPokemon() {
   const matchedPokemon = allPokemonSearchData.filter(p => p.name.includes(input));
 
   if (matchedPokemon.length === 0) {
-    resultContainer.innerHTML = "<span class='no-result-feedback'>No results found.</span>";
+    searchResult.innerHTML = "<span class='no-result-feedback'>No results found.</span>";
     return;
   } 
     currentPokemonArray = matchedPokemon;
