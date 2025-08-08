@@ -5,7 +5,9 @@ function getPokeCardTemplate(index, array) {
             <span>${array[index].name.toUpperCase()}</span>
             </div>
             <div class="bg_${array[index].type[0]} bg-size">
-            <img src="${array[index].image}" alt="${array[index].name}" class="pokemon-img">
+            <img src="${array[index].image}" alt="${
+    array[index].name
+  }" class="pokemon-img">
             </div>
             <div class="card-footer">
             ${getTypeIcon(index, array)}
@@ -21,7 +23,9 @@ function getPokeCardTemplateLarge(currentIndex, array) {
             <img src="./img/right_chevron_white.png" onclick="nextButton()" alt="next card" class="icon-img">
             </div>
             <div class="bg_${array[currentIndex].type[0]} overlay-bg-size">
-            <img src="${array[currentIndex].image}" alt="${array[currentIndex].name}" class="overlay-pokemon-img">
+            <img src="${array[currentIndex].image}" alt="${
+    array[currentIndex].name
+  }" class="overlay-pokemon-img">
             </div>
             <div class="card-footer">
             ${getTypeIcon(currentIndex, array)}
@@ -115,23 +119,19 @@ function getPokeCardTemplateLarge(currentIndex, array) {
 }
 
 function connectingEvoPokemon(pokemon) {
-  console.log('connectingEvoPokemon called for:', pokemon.name);
-  let evoPokemon = pokemonEvoChain.find(e => e.chain.includes(pokemon.name.toLowerCase()));
+  let evoPokemon = pokemonEvoChain.find((e) => e.chain.includes(pokemon.name.toLowerCase())
+  );
 
-  if(!evoPokemon) {
-    console.log('No chain found for', pokemon.name);
-    return `<span>No evolution chain found</span>`;
-  }
-
-  return evoPokemon.chain.map(name=> {
-    const imgEntry = pokemonImages.find(p => p.name === name.toLowerCase());
-    if(imgEntry){
-      return `<img src="${imgEntry.image}" class="evo-img" alt="${name}">`
-    } else {
-      return `<span>${name}</span>`;
-    }
-  }).join('')
-
+  return evoPokemon.chain
+    .map((name) => {
+      const imgEntry = pokemonImages.find((p) => p.name === name.toLowerCase());
+      if (imgEntry) {
+        return `<img src="${imgEntry.image}" class="evo-img" alt="${name}">`;
+      } else {
+        return `<span>${name}</span>`;
+      }
+    })
+    .join("");
 }
 
 function getTypeIcon(index, array) {
@@ -141,4 +141,9 @@ function getTypeIcon(index, array) {
       return `<div id="pokeType-img" class="icon_${type}" alt="${type}"></div>`;
     })
     .join("");
+}
+
+function loadingSpinner() {
+  let contentRef = document.getElementById("content");
+  return (contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`);
 }

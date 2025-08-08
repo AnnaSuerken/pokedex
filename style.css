@@ -104,45 +104,41 @@
   margin-right: 64px;
 }
 
-.no-result-feedback{
+.no-result-feedback {
   margin-top: 64px;
 }
 
 /* Responsive Design */
 
-@media(max-width: 660px){
- 
-
-.logo {
-  width: 45px;
-  margin-top: 25px;
-  margin-left: 64px;
-}
-
-.loading-spinner {
-  margin-top: 64px;
-  width: 55px;
-}
-
-}
-
-@media(max-width: 490px){ 
+@media (max-width: 660px) {
   .logo {
-  margin-top: 25px;
-  margin-left: 0;
+    width: 45px;
+    margin-top: 25px;
+    margin-left: 64px;
+  }
+
+  .loading-spinner {
+    margin-top: 64px;
+    width: 55px;
+  }
 }
 
-.poke-card {
-  background-color: #011624;
-  height: 300px;
-  width: 200px;
-  margin: 32px;
-  border-radius: 20px;
-  cursor: pointer;
-}
+@media (max-width: 490px) {
+  .logo {
+    margin-top: 25px;
+    margin-left: 0;
+  }
 
-.search-section {
-  margin-right: 0;
-}
+  .poke-card {
+    background-color: #011624;
+    height: 300px;
+    width: 200px;
+    margin: 32px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
 
+  .search-section {
+    margin-right: 0;
+  }
 }

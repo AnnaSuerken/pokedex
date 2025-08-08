@@ -9,13 +9,8 @@ async function init() {
   await loadPokemonApi();
 
   await loadAllPokemonImgs();
-  
-  renderPokemonCards(currentPokemonArray = pokemonArray);
 
-  preloadAllPokemonImages(pokemonArray);
-
-  console.log(pokemonArray); //delete
-  console.log(pokemonEvoChain); //delete
+  renderPokemonCards((currentPokemonArray = pokemonArray));
 }
 
 async function fetchPokemonUrls() {
@@ -50,7 +45,7 @@ async function fetchPreviousStackUrl() {
   const previousUrl = data.previous;
 
   if (previousUrl === null) {
-    return alert("You've reached the first stack!"); 
+    return alert("You've reached the first stack!");
   }
   baseUrl = previousUrl;
 
@@ -76,19 +71,19 @@ async function fetchPokemonDetails(array) {
   pokemonArray.push(...allPokemonData);
 }
 
-function buildPokemonData(data){
+function buildPokemonData(data) {
   return {
-        name: data.name,
-        image: data.sprites.other.home.front_default,
-        id: data.id,
-        height: data.height,
-        weight: data.weight,
-        abilities: data.abilities.map((a) => a.ability.name),
-        type: data.types.map((t) => t.type.name),
-        stats: data.stats.map((s) => s.stat.name),
-        base_stat: data.stats.map((s) => s.base_stat),
-        effort: data.stats.map((s) => s.effort),
-      };
+    name: data.name,
+    image: data.sprites.other.home.front_default,
+    id: data.id,
+    height: data.height,
+    weight: data.weight,
+    abilities: data.abilities.map((a) => a.ability.name),
+    type: data.types.map((t) => t.type.name),
+    stats: data.stats.map((s) => s.stat.name),
+    base_stat: data.stats.map((s) => s.base_stat),
+    effort: data.stats.map((s) => s.effort),
+  };
 }
 
 function renderPokemonCards(array) {
@@ -97,14 +92,6 @@ function renderPokemonCards(array) {
 
   for (let index = 0; index < array.length; index++) {
     contentRef.innerHTML += getPokeCardTemplate(index, array);
-  }
-
-   if (array.length > 0) {
-    const evoHTML = connectingEvoPokemon(array[0]); // erstes Pokémon
-    const evoContainer = document.getElementById("evo-chain-imgs");
-    if (evoContainer) {
-      evoContainer.innerHTML = evoHTML;
-    }
   }
 }
 
@@ -117,8 +104,11 @@ function toggleOverlay(index, array = currentPokemonArray) {
 
   overlay.classList.remove("toggle_d_none");
   document.body.classList.add("no-scroll");
-  
-  overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
+
+  overlayContent.innerHTML = getPokeCardTemplateLarge(
+    currentIndex,
+    currentPokemonArray
+  );
 }
 
 function exitOverlay(event) {
@@ -147,16 +137,11 @@ function toggleDNone(idName, idName2, idName3) {
   id3.classList.add("toggle_d_none");
 }
 
-function loadingSpinner() {
-  let contentRef = document.getElementById("content");
-  return (contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`);
-}
-
 function nextButton() {
   currentIndex++;
 
   if (currentIndex >= currentPokemonArray.length) {
-    currentIndex = currentPokemonArray.length -1;
+    currentIndex = currentPokemonArray.length - 1;
   }
   updateOverlayCard();
 }
@@ -165,19 +150,15 @@ function previousButton() {
   currentIndex--;
 
   if (currentIndex <= 0) {
-  currentIndex = 0;
+    currentIndex = 0;
   }
   updateOverlayCard();
 }
 
 function updateOverlayCard() {
   let overlayContent = document.getElementById("overlayContent");
-  overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
-}
-
-function preloadAllPokemonImages(array) {
-  array.forEach(pokemon => {
-    const img = new Image();
-    img.src = pokemon.image;
-  });
+  overlayContent.innerHTML = getPokeCardTemplateLarge(
+    currentIndex,
+    currentPokemonArray
+  );
 }

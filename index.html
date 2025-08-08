@@ -11,27 +11,30 @@
     <script src="./js/search.js"></script>
     <script src="./js/img.js"></script>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./css/types.css"/>
-    <link rel="stylesheet" href="./css/assets.css"/>
-    <link rel="stylesheet" href="./css/overlay.css"/>
-    <link rel="icon" type="image/x-icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./css/types.css" />
+    <link rel="stylesheet" href="./css/assets.css" />
+    <link rel="stylesheet" href="./css/overlay.css" />
+    <link rel="icon" type="image/x-icon" href="./img/logo.png" />
   </head>
   <body onload="init()">
     <div>
       <header>
         <div class="logo-container">
-          <a href="./index.html"><img src="./img/logo.png" alt="Logo" class="logo"/></a>
+          <a href="./index.html"
+            ><img src="./img/logo.png" alt="Logo" class="logo"
+          /></a>
           <h1>POKEDEX</h1>
         </div>
         <div class="search-section">
-        <input 
-          id="search-bar" 
-          class="search-bar" 
-          type="text" 
-          name="search" 
-          placeholder="Pokemon..."/>
-          
-        <button onclick="searchPokemon()">SEARCH</button>
+          <input
+            id="search-bar"
+            class="search-bar"
+            type="text"
+            name="search"
+            placeholder="Pokemon..."
+          />
+
+          <button onclick="searchPokemon()">SEARCH</button>
         </div>
       </header>
       <main>
@@ -40,16 +43,20 @@
 
       <footer>
         <div class="stack-slide-section" id="stack-buttons">
-        <button onclick="fetchPreviousStackUrl()">PREVIOUS STACK</button>
-        <button onclick="fetchNextStackUrl()">NEXT STACK</button>
+          <button onclick="fetchPreviousStackUrl()">PREVIOUS STACK</button>
+          <button onclick="fetchNextStackUrl()">NEXT STACK</button>
         </div>
       </footer>
     </div>
-    <div onclick="exitOverlay(event)" class="overlay toggle_d_none" id="overlay">
-        <button onclick="exitButton()" class="closing-button">X</button>
-        <div class="pokecard-large">
-          <div class="overlayContent" id="overlayContent"></div>
-        </div>
+    <div
+      onclick="exitOverlay(event)"
+      class="overlay toggle_d_none"
+      id="overlay"
+    >
+      <button onclick="exitButton()" class="closing-button">X</button>
+      <div class="pokecard-large">
+        <div class="overlayContent" id="overlayContent"></div>
+      </div>
     </div>
   </body>
 </html>

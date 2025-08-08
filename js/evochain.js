@@ -1,6 +1,5 @@
 let evoUrl = "https://pokeapi.co/api/v2/evolution-chain/?limit=1000";
 
-
 async function loadAllEvoData() {
   const evoUrls = await fetchEvoUrl();
   await fetchPokemonEvo(evoUrls);

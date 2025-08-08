@@ -8,3 +8,6 @@ let currentIndex = 0;
 let pokemonArray=[];
 let pokemonEvoChain = [];
 let pokemonStats=[];
+let currentPokemonArray = [];
+let allPokemonSearchData = [];
+let pokemonImages = [];
