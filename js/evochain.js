@@ -1,4 +1,10 @@
-const evoUrl = "https://pokeapi.co/api/v2/evolution-chain/?limit=20&offset=0";
+let evoUrl = "https://pokeapi.co/api/v2/evolution-chain/?limit=1000";
+
+
+async function loadAllEvoData() {
+  const evoUrls = await fetchEvoUrl();
+  await fetchPokemonEvo(evoUrls);
+}
 
 async function fetchEvoUrl() {
   const response = await fetch(evoUrl);
@@ -19,6 +25,7 @@ async function fetchPokemonEvo(array) {
       names.push(chain.species.name);
       chain.evolves_to.forEach((next) => traverse(next));
     }
+    pokemonEvoChain.sort((a, b) => a.id - b.id);
     traverse(pokeEvoData.chain);
 
     pokemonEvoChain.push(pushChainData(pokeEvoData, names));

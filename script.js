@@ -4,16 +4,18 @@ async function init() {
   const pokemonUrls = await fetchPokemonUrls();
   await fetchPokemonDetails(pokemonUrls);
 
-  const evoUrls = await fetchEvoUrl();
-  await fetchPokemonEvo(evoUrls);
+  await loadAllEvoData();
 
   await loadPokemonApi();
 
+  await loadAllPokemonImgs();
+  
   renderPokemonCards(currentPokemonArray = pokemonArray);
+
+  preloadAllPokemonImages(pokemonArray);
 
   console.log(pokemonArray); //delete
   console.log(pokemonEvoChain); //delete
-  console.log(nextStackUrl); //delete
 }
 
 async function fetchPokemonUrls() {
@@ -29,14 +31,16 @@ async function fetchNextStackUrl() {
   const nextStackUrl = data.next;
 
   if (nextStackUrl === null) {
-    return alert("Du bist beim letzten Stack angelangt");
+    return alert("You've reached the last stack!");
   }
 
   baseUrl = nextStackUrl;
+
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
   pokemonArray = [];
   pokemonEvoChain = [];
+
   init();
 }
 
@@ -49,10 +53,12 @@ async function fetchPreviousStackUrl() {
     return alert("You've reached the first stack!"); 
   }
   baseUrl = previousUrl;
+
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
   pokemonArray = [];
   pokemonEvoChain = [];
+
   init();
 }
 
@@ -92,6 +98,14 @@ function renderPokemonCards(array) {
   for (let index = 0; index < array.length; index++) {
     contentRef.innerHTML += getPokeCardTemplate(index, array);
   }
+
+   if (array.length > 0) {
+    const evoHTML = connectingEvoPokemon(array[0]); // erstes Pokémon
+    const evoContainer = document.getElementById("evo-chain-imgs");
+    if (evoContainer) {
+      evoContainer.innerHTML = evoHTML;
+    }
+  }
 }
 
 function toggleOverlay(index, array = currentPokemonArray) {
@@ -103,7 +117,8 @@ function toggleOverlay(index, array = currentPokemonArray) {
 
   overlay.classList.remove("toggle_d_none");
   document.body.classList.add("no-scroll");
-  overlayContent.innerHTML += getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
+  
+  overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
 }
 
 function exitOverlay(event) {
@@ -158,4 +173,11 @@ function previousButton() {
 function updateOverlayCard() {
   let overlayContent = document.getElementById("overlayContent");
   overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
+}
+
+function preloadAllPokemonImages(array) {
+  array.forEach(pokemon => {
+    const img = new Image();
+    img.src = pokemon.image;
+  });
 }

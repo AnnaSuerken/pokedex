@@ -119,8 +119,8 @@ h2 {
 .evo-container{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 25px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .icon-img{
@@ -167,6 +167,13 @@ h2 {
     margin-right: 10px;
 }
 
+.evo-img{
+    width: 80px;
+}
+
+.evo-container{
+    margin-left: 10px;
+}
 }
 
 @media (max-width: 430px){
@@ -191,7 +198,7 @@ h2 {
 }
 
 .evo-img{
-    width: 80px;
+    width: 60px;
 }
 
 .stats-content-container{

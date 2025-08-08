@@ -1,33 +1,13 @@
 let currentPokemonArray = [];
 let allPokemonSearchData = [];
 
-/*function searchPokemon() {
-  let searchResult = document.getElementById("content");
-  let inputField = document.getElementById("search-bar");
-  let input = inputField.value.toLowerCase();
-  let results = pokemonArray.filter((pokemon) => pokemon.name.includes(input));
-  searchResult.innerHTML = "";
-
-  if (input.length < 3) {
-    searchResult.innerHTML = `<span class="no-result-feedback">Please enter at least 3 characters.</span>`;
-    return;
-  }
-
-  if (results.length > 0) {
-    currentPokemonArray = results;
-    renderPokemonCards(currentPokemonArray);
-  } else {
-    searchResult.innerHTML = `<span class="no-result-feedback">Pokemon could not be found.</span>`;
-  }
-  
-}*/
-
 function searchPokemon() {
   let searchResult = document.getElementById("content");
   let inputField = document.getElementById("search-bar");
   let input = inputField.value.toLowerCase();
 
   searchResult.innerHTML = "";
+
 
   if (input.length < 3) {
     searchResult.innerHTML = `<span class="no-result-feedback">Please enter at least 3 characters.</span>`;
@@ -41,7 +21,7 @@ function searchPokemon() {
     return;
   } 
     currentPokemonArray = matchedPokemon;
-    renderPokemonCards(currentPokemonArray); //evo chain is not linked yet
+    renderPokemonCards(currentPokemonArray); 
   
 }
 
@@ -56,8 +36,8 @@ async function loadPokemonApi(){
 
   const detailedPokemonData = await Promise.all(
     subset.map(async url => {
-      const res = await fetch(url);
-      const pokeData = await res.json();
+      const response = await fetch(url);
+      const pokeData = await response.json();
       return buildPokemonData(pokeData); 
     })
   );

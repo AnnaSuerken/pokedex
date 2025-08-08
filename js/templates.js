@@ -1,5 +1,5 @@
 function getPokeCardTemplate(index, array) {
-  return `<div class="poke-card" onclick="toggleOverlay(${index})">
+  return `<div class="poke-card" onclick="toggleOverlay(${index}, currentPokemonArray)">
             <div class="card-header">
             <span># ${array[index].id}</span>
             <span>${array[index].name.toUpperCase()}</span>
@@ -109,25 +109,26 @@ function getPokeCardTemplateLarge(currentIndex, array) {
             </div>
             <div class="detail-view-main toggle_d_none" id="evo-chain">
                         <div class="evo-container" id="evo-chain-imgs"> 
-                        ${connectingEvoPokemon(array)}
+                        ${connectingEvoPokemon(array[currentIndex])}
                         </div>
             </div>`;
 }
 
-function connectingEvoPokemon(array) {
-  let currentPokemonName = array[currentIndex].name;
-  let evoPokemon = pokemonEvoChain.find(e => e.chain.includes(currentPokemonName));
+function connectingEvoPokemon(pokemon) {
+  console.log('connectingEvoPokemon called for:', pokemon.name);
+  let evoPokemon = pokemonEvoChain.find(e => e.chain.includes(pokemon.name.toLowerCase()));
 
   if(!evoPokemon) {
+    console.log('No chain found for', pokemon.name);
     return `<span>No evolution chain found</span>`;
   }
 
   return evoPokemon.chain.map(name=> {
-    const foundPokemon = pokemonArray.find(p => p.name === name);
-    if(foundPokemon){
-      return `<img src="${foundPokemon.image}" class="evo-img" alt="${foundPokemon.name}">`
+    const imgEntry = pokemonImages.find(p => p.name === name.toLowerCase());
+    if(imgEntry){
+      return `<img src="${imgEntry.image}" class="evo-img" alt="${name}">`
     } else {
-      return '';
+      return `<span>${name}</span>`;
     }
   }).join('')
 
@@ -140,8 +141,4 @@ function getTypeIcon(index, array) {
       return `<div id="pokeType-img" class="icon_${type}" alt="${type}"></div>`;
     })
     .join("");
-}
-
-function loadMoreTemplate() {
-  return `<button class="loading-btn" id="loading-btn">Weiter</button>`;
 }
