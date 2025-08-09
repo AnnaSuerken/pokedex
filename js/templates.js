@@ -118,32 +118,3 @@ function getPokeCardTemplateLarge(currentIndex, array) {
             </div>`;
 }
 
-function connectingEvoPokemon(pokemon) {
-  let evoPokemon = pokemonEvoChain.find((e) => e.chain.includes(pokemon.name.toLowerCase())
-  );
-
-  return evoPokemon.chain
-    .map((name) => {
-      const imgEntry = pokemonImages.find((p) => p.name === name.toLowerCase());
-      if (imgEntry) {
-        return `<img src="${imgEntry.image}" class="evo-img" alt="${name}">`;
-      } else {
-        return `<span>${name}</span>`;
-      }
-    })
-    .join("");
-}
-
-function getTypeIcon(index, array) {
-  let type = array[index].type;
-  return type
-    .map((type) => {
-      return `<div id="pokeType-img" class="icon_${type}" alt="${type}"></div>`;
-    })
-    .join("");
-}
-
-function loadingSpinner() {
-  let contentRef = document.getElementById("content");
-  return (contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`);
-}

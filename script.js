@@ -8,9 +8,9 @@ async function init() {
 
   await loadPokemonApi();
 
-  await loadAllPokemonImgs();
-
   renderPokemonCards((currentPokemonArray = pokemonArray));
+  console.log(pokemonArray);
+  console.log(pokemonEvoChain);
 }
 
 async function fetchPokemonUrls() {
@@ -161,4 +161,18 @@ function updateOverlayCard() {
     currentIndex,
     currentPokemonArray
   );
+}
+
+function loadingSpinner() {
+  let contentRef = document.getElementById("content");
+  return (contentRef.innerHTML += `<img src="./img/spinning_pokeball.gif" alt="loading" class="loading-spinner">`);
+}
+
+function getTypeIcon(index, array) {
+  let type = array[index].type;
+  return type
+    .map((type) => {
+      return `<div id="pokeType-img" class="icon_${type}" alt="${type}"></div>`;
+    })
+    .join("");
 }

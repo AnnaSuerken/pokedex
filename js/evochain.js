@@ -33,8 +33,23 @@ async function fetchPokemonEvo(array) {
 
 function pushChainData(pokeEvoData, names) {
   return {
-    id: pokeEvoData.id,
     name: names[0],
     chain: names,
   };
+}
+
+function connectingEvoPokemon(pokemon) {
+  let evoPokemon = pokemonEvoChain.find((e) => e.chain.includes(pokemon.name.toLowerCase())
+  );
+
+  return evoPokemon.chain
+    .map((name) => {
+      const imgEntry = pokemonImages.find((p) => p.name === name.toLowerCase());
+      if (imgEntry) {
+        return `<img src="${imgEntry.image}" class="evo-img" alt="${name}">`;
+      } else {
+        return `<span>${name}</span>`;
+      }
+    })
+    .join("");
 }
