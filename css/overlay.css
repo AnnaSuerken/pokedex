@@ -21,7 +21,7 @@
   background-color: #011624;
   width: 450px;
   height: 650px;
-  margin-top: 130px;
+  margin-top: 50px;
   border-radius: 20px;
 }
 
@@ -124,6 +124,7 @@ h2 {
 
 .icon-img {
   width: 25px;
+  cursor: pointer;
 }
 
 .icon-img:hover {
@@ -175,6 +176,7 @@ h2 {
   .pokecard-large {
     width: 250px;
     height: 525px;
+    margin-top: 25px;
   }
 
   h2 {

@@ -28,12 +28,13 @@
           <input
             id="search-bar"
             class="search-bar"
-            type="text"
+            type="search"
             name="search"
             placeholder="Pokemon..."
-          />
+           onkeyup="searchPokemon()"/>
 
-          <button onclick="searchPokemon()">SEARCH</button>
+          <button id="search-button" onclick="searchPokemon()">SEARCH</button>
+          <a href="./index.html" class="toggle_d_none" id="search-exit-button"><button>RETURN</button></a>
         </div>
       </header>
       <main>

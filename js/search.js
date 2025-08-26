@@ -3,7 +3,10 @@ function getMatchedPokemon(input) {
 }
 
 function showFeedback(el, msg) {
-  el.innerHTML = `<span class="no-result-feedback">${msg}</span>`;
+  el.innerHTML = `<div class="feedback-container">
+                    <span class="no-result-feedback">${msg}</span>
+                    </div>`;
+                    exitSearch();
 }
 
 function searchPokemon() {
@@ -17,12 +20,13 @@ function searchPokemon() {
 
   const matchedPokemon = getMatchedPokemon(input);
 
-  if (matchedPokemon.length === 0) {
+  if (matchedPokemon.length === 0) { 
     return showFeedback(searchResult, "No results found.");
   }
 
   currentPokemonArray = matchedPokemon;
   renderPokemonCards(currentPokemonArray);
+  exitSearch();
 }
 
 async function fetchPokemonData(url) {
@@ -41,4 +45,12 @@ async function loadPokemonApi() {
   );
 
   allPokemonSearchData = detailedPokemonData;
+}
+
+function exitSearch() {
+  let searchButton = document.getElementById("search-button");
+  let searchExitButton = document.getElementById("search-exit-button");
+
+  searchExitButton.classList.remove("toggle_d_none");
+  searchButton.classList.add("toggle_d_none");
 }

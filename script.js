@@ -7,8 +7,6 @@ async function init() {
   await loadPokemonApi();
 
   renderPokemonCards((currentPokemonArray = pokemonArray));
-  console.log(pokemonArray);
-  console.log(pokemonEvoChain);
 }
 
 async function fetchPokemonUrls() {
@@ -103,10 +101,8 @@ function toggleOverlay(index, array = currentPokemonArray) {
   overlay.classList.remove("toggle_d_none");
   document.body.classList.add("no-scroll");
 
-  overlayContent.innerHTML = getPokeCardTemplateLarge(
-    currentIndex,
-    currentPokemonArray
-  );
+  overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
+  updateOverlayCard();
 }
 
 function exitOverlay(event) {
@@ -139,7 +135,7 @@ function nextButton() {
   currentIndex++;
 
   if (currentIndex >= currentPokemonArray.length) {
-    currentIndex = currentPokemonArray.length - 1;
+    currentIndex = currentPokemonArray.length - 1; 
   }
   updateOverlayCard();
 }
@@ -155,10 +151,25 @@ function previousButton() {
 
 function updateOverlayCard() {
   let overlayContent = document.getElementById("overlayContent");
-  overlayContent.innerHTML = getPokeCardTemplateLarge(
-    currentIndex,
-    currentPokemonArray
-  );
+  overlayContent.innerHTML = getPokeCardTemplateLarge(currentIndex, currentPokemonArray);
+  toggleSliderBtns();
+}
+
+function toggleSliderBtns(){
+  let nextBtn = document.getElementById("next-button");
+  let prevBtn = document.getElementById("previous-button");
+
+  if (currentIndex >= currentPokemonArray.length - 1) {
+    nextBtn.classList.add("toggle_d_none");
+  } else {
+    nextBtn.classList.remove("toggle_d_none");
+  }
+
+  if (currentIndex <= 0) {
+    prevBtn.classList.add("toggle_d_none");
+  } else {
+    prevBtn.classList.remove("toggle_d_none");
+  }
 }
 
 function loadingSpinner() {
