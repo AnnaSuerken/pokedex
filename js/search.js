@@ -1,43 +1,43 @@
+function getMatchedPokemon(input) {
+  return allPokemonSearchData.filter((p) => p.name.includes(input));
+}
+
+function showFeedback(el, msg) {
+  el.innerHTML = `<span class="no-result-feedback">${msg}</span>`;
+}
+
 function searchPokemon() {
   let searchResult = document.getElementById("content");
-  let inputField = document.getElementById("search-bar");
-  let input = inputField.value.toLowerCase();
-
+  let input = document.getElementById("search-bar").value.toLowerCase();
   searchResult.innerHTML = "";
 
   if (input.length < 3) {
-    searchResult.innerHTML = `<span class="no-result-feedback">Please enter at least 3 characters.</span>`;
-    return;
+    return showFeedback(searchResult, "Please enter at least 3 characters.");
   }
 
-  const matchedPokemon = allPokemonSearchData.filter((p) =>
-    p.name.includes(input)
-  );
+  const matchedPokemon = getMatchedPokemon(input);
 
   if (matchedPokemon.length === 0) {
-    searchResult.innerHTML =
-      "<span class='no-result-feedback'>No results found.</span>";
-    return;
+    return showFeedback(searchResult, "No results found.");
   }
+
   currentPokemonArray = matchedPokemon;
   renderPokemonCards(currentPokemonArray);
 }
 
-async function loadPokemonApi() {
-  let url = `https://pokeapi.co/api/v2/pokemon?limit=1300`;
-
+async function fetchPokemonData(url) {
   const response = await fetch(url);
-  const pokeSearchData = await response.json();
-  const urls = pokeSearchData.results.map((p) => p.url);
+  const pokeData = await response.json();
+  return buildPokemonData(pokeData);
+}
 
-  const subset = urls.slice(0, 50);
+async function loadPokemonApi() {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1300`);
+  const pokeSearchData = await response.json();
+  const subset = pokeSearchData.results.map((p) => p.url).slice(0, 50);
 
   const detailedPokemonData = await Promise.all(
-    subset.map(async (url) => {
-      const response = await fetch(url);
-      const pokeData = await response.json();
-      return buildPokemonData(pokeData);
-    })
+    subset.map(async (url) => fetchPokemonData(url))
   );
 
   allPokemonSearchData = detailedPokemonData;

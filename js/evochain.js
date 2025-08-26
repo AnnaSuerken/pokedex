@@ -1,36 +1,39 @@
+function getId(url) {
+  const parts = url.split("/");
+  return parseInt(parts[parts.length - 2], 10);
+}
+
+function traverse(chain, evoList) {
+  evoList.push({ name: chain.species.name, id: getId(chain.species.url) });
+  chain.evolves_to.forEach((next) => traverse(next, evoList));
+}
+
 async function fetchEvolutionForPokemon(pokemonName) {
-    const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}`);
-    const speciesData = await speciesResponse.json();
+  const speciesResponse = await fetch(
+    `https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}`
+  );
+  const speciesData = await speciesResponse.json();
 
-    const evoChainUrl = speciesData.evolution_chain.url;
-    const evoChainResponse = await fetch(evoChainUrl);
-    const evoChainData = await evoChainResponse.json();
+  const evoChainUrl = speciesData.evolution_chain.url;
+  const evoChainResponse = await fetch(evoChainUrl);
+  const evoChainData = await evoChainResponse.json();
 
-    const evoList = [];
-    
-    function traverse(chain) {
-      const urlPaths = chain.species.url.split("/");
-      const id = urlPaths[urlPaths.length - 2];
+  const evoList = [];
 
-      evoList.push({
-      name: chain.species.name,
-      id: parseInt(id, 10)
-    });
+  traverse(evoChainData.chain, evoList);
 
-      chain.evolves_to.forEach(next => traverse(next));
-    }
-    traverse(evoChainData.chain);
-
-    return evoList;
+  return evoList;
 }
 
 function generateEvolutionHTML(evoList) {
-  return evoList.map(poke => {
+  return evoList
+    .map((poke) => {
       const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${poke.id}.png`;
       return `<div class="evo-item">
                 <img src="${imgUrl}" alt="${poke.name}" class="evo-img" />
               </div>`;
-  }).join("");
+    })
+    .join("");
 }
 
 async function showEvolutionChain() {
