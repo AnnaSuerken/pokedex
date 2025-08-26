@@ -1,55 +1,47 @@
-let evoUrl = "https://pokeapi.co/api/v2/evolution-chain/?limit=1000";
+async function fetchEvolutionForPokemon(pokemonName) {
+    const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}`);
+    const speciesData = await speciesResponse.json();
 
-async function loadAllEvoData() {
-  const evoUrls = await fetchEvoUrl();
-  await fetchPokemonEvo(evoUrls);
-}
+    const evoChainUrl = speciesData.evolution_chain.url;
+    const evoChainResponse = await fetch(evoChainUrl);
+    const evoChainData = await evoChainResponse.json();
 
-async function fetchEvoUrl() {
-  const response = await fetch(evoUrl);
-  const data = await response.json();
-  const evoUrls = data.results.map((results) => results.url);
-
-  return evoUrls;
-}
-
-async function fetchPokemonEvo(array) {
-  for (let urlIndex = 0; urlIndex < array.length; urlIndex++) {
-    const pokeEvoResponse = await fetch(array[urlIndex]);
-    const pokeEvoData = await pokeEvoResponse.json();
-
-    const names = [];
-
+    const evoList = [];
+    
     function traverse(chain) {
-      names.push(chain.species.name);
-      chain.evolves_to.forEach((next) => traverse(next));
+      const urlPaths = chain.species.url.split("/");
+      const id = urlPaths[urlPaths.length - 2];
+
+      evoList.push({
+      name: chain.species.name,
+      id: parseInt(id, 10)
+    });
+
+      chain.evolves_to.forEach(next => traverse(next));
     }
-    pokemonEvoChain.sort((a, b) => a.id - b.id);
-    traverse(pokeEvoData.chain);
+    traverse(evoChainData.chain);
 
-    pokemonEvoChain.push(pushChainData(pokeEvoData, names));
+    return evoList;
+}
+
+function generateEvolutionHTML(evoList) {
+  return evoList.map(poke => {
+      const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${poke.id}.png`;
+      return `<div class="evo-item">
+                <img src="${imgUrl}" alt="${poke.name}" class="evo-img" />
+              </div>`;
+  }).join("");
+}
+
+async function showEvolutionChain() {
+  const currentPokemon = currentPokemonArray[currentIndex];
+  if (!currentPokemon) return;
+
+  const evoNames = await fetchEvolutionForPokemon(currentPokemon.name);
+  const evoHTML = generateEvolutionHTML(evoNames, currentPokemonArray);
+
+  const evoContainer = document.getElementById("evo-chain-imgs");
+  if (evoContainer) {
+    evoContainer.innerHTML = evoHTML;
   }
-}
-
-function pushChainData(pokeEvoData, names) {
-  return {
-    name: names[0],
-    chain: names,
-  };
-}
-
-function connectingEvoPokemon(pokemon) {
-  let evoPokemon = pokemonEvoChain.find((e) => e.chain.includes(pokemon.name.toLowerCase())
-  );
-
-  return evoPokemon.chain
-    .map((name) => {
-      const imgEntry = pokemonImages.find((p) => p.name === name.toLowerCase());
-      if (imgEntry) {
-        return `<img src="${imgEntry.image}" class="evo-img" alt="${name}">`;
-      } else {
-        return `<span>${name}</span>`;
-      }
-    })
-    .join("");
 }

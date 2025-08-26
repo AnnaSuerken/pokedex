@@ -4,8 +4,6 @@ async function init() {
   const pokemonUrls = await fetchPokemonUrls();
   await fetchPokemonDetails(pokemonUrls);
 
-  await loadAllEvoData();
-
   await loadPokemonApi();
 
   renderPokemonCards((currentPokemonArray = pokemonArray));

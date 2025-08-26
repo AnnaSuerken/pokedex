@@ -33,7 +33,7 @@ function getPokeCardTemplateLarge(currentIndex, array) {
             <div class="pokeDetails">
                 <span class="detail-category" onclick="toggleDNone('main-table', 'stats-table', 'evo-chain')">main</span>
                 <span class="detail-category" onclick="toggleDNone('stats-table', 'main-table', 'evo-chain')">stats</span>
-                <span class="detail-category" onclick="toggleDNone('evo-chain', 'stats-table', 'main-table')">evo chain</span>
+                <span class="detail-category" onclick="toggleDNone('evo-chain', 'stats-table', 'main-table'); showEvolutionChain()">evo chain</span>
             </div>
             <div class="detail-view-main text-align" id="main-table">
                       <div class="detail-content">
@@ -112,9 +112,8 @@ function getPokeCardTemplateLarge(currentIndex, array) {
                         </div>
             </div>
             <div class="detail-view-main toggle_d_none" id="evo-chain">
-                        <div class="evo-container" id="evo-chain-imgs"> 
-                        ${connectingEvoPokemon(array[currentIndex])}
-                        </div>
+              <div class="evo-container" id="evo-chain-imgs"> 
+              </div>
             </div>`;
 }
 
