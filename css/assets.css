@@ -28,6 +28,7 @@ main {
   justify-content: center;
   flex-direction: column;
   padding-bottom: 150px;
+  max-width: 1920px;
 }
 
 footer {

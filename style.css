@@ -1,3 +1,10 @@
+.header-content{
+  max-width: 1920px;
+  display: flex;
+  align-items: center;
+  justify-content:  space-between;
+  width: 100%;
+}
 .logo-container {
   display: flex;
   align-items: center;
@@ -16,7 +23,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 1920px;
 }
 
 .poke-card {
@@ -87,6 +93,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  max-width: 1920px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 .toggle_d_none {
@@ -152,3 +161,10 @@
   flex-direction: column;
   gap: 15px;
 }
+
+@media (max-width: 360px) {
+  .header-content{
+  flex-direction: column;
+}
+ }
+
